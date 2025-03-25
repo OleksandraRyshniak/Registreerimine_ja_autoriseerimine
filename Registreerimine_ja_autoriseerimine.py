@@ -41,8 +41,8 @@ if v:
                         break
                     else:
                         print("Seda kasutajanime ei ole nimekirjas!")
-                    while 1:
-                        parool = str(input("Sisesta oma parool: "))
+                while 1:
+                    parool = str(input("Sisesta oma parool: "))
                     if login_parool(login, parool):
                         print("Sa oled süsteemi sisse loginud!")
                     else:
