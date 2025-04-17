@@ -55,12 +55,8 @@ if v:
 else: 
         while True:
             login = str(input("Sisesta oma kasutajanimi: "))
-            if log(login):
-                break
-            print("Seda kasutajanime ei ole nimekirjas!")
+            if log("login_parool.txt", login):break
         while True:
             parool = str(input("Sisesta oma parool: "))
-            if login_parool(login, parool):
+            if login_parool("login_parool.txt", login, parool):
                 break
-            print("Parool ei sobi!")
-        print("Sa oled süsteemi sisse loginud!")

@@ -1,0 +1,2 @@
+{'nimi': 'alexa', 'parool' : 'qweRt56>', 'email' : 'alexa@gmail.com'}
+{'nimi': 'user1', 'parool' : 'User1pass#', 'email' : 'user1@gmail.com'}

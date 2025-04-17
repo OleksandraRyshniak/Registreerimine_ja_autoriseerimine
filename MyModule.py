@@ -1,7 +1,5 @@
-login_list=["alexa", "user1" ]
-parool_list=["qweRt56>", "User1pass#" ]
-
 import random
+
 def vas(vastus: str) -> bool:
     """Vastus ei või jah
     Kui kasutaja sisestab jah, tagastab funktsioon True
@@ -15,41 +13,58 @@ def vas(vastus: str) -> bool:
         v=False
     return v
 
-def log(login: str) -> bool:
+def log(fail:str, login: str) -> bool:
     """Kasutaja sisestab oma sisselogimise
     :param str login: Sisend kasutajalt 
     :rtype: bool tagastab tõeväärsuses formaadis tulemus
     """
-    if login in login_list:
-        v1=True
-    else:
-        v1=False
+    v1=False
+    f=open (fail,'r', encoding="utf-8-sig")
+    sonad=[]
+    for rida in f:
+        sonad.append(eval(rida.strip()))
+    f.close()
+    for kirje in sonad:
+        if kirje['nimi'].lower() == login.lower():
+            print("Sisselogimine sobib.")
+            v1=True
+    print("Sellist sisselogimist ei ole")
     return v1
 
-def par(parool: str) -> bool:
+
+def par(fail:str,login:str, parool: str) -> bool:
     """Kasutaja sisestab oma salasõna
     :param str parool: Sisend kasutajalt 
     :rtype: bool tagastab tõeväärsuses formaadis tulemus
     """
-    if parool in parool_list:
-        v2=True
-    else:
-        v2=False
+    with open (fail,'r', encoding="utf-8-sig") as f:
+        sonad=[]
+    for rida in f:
+            sonad.append(eval(rida.strip()))
+    for kirje in sonad:
+        if kirje['parool'].lower==parool.lower():
+            v2=True
+        else:
+            v2=False
     return v2
 
-def login_parool(login: str, parool: str) -> bool:
+def login_parool(fail:str, login:str, parool: str) -> any:
     """Kasutajanime ja sobiva parooli kontrollimine
     Kasutaja sisestab kasutajanime ja parooli
     :param str login: Sisend kasutajalt 
     :param str parool: Sisend kasutajalt
     :rtype: bool tagastab tõeväärsuses formaadis tulemus
     """
-    if login in login_list:
-        i = login_list.index(login)
-        v3=parool_list[i] == parool
-    else:
-        v3=False
-    return v3
+    h=("Seda sõna ei ole sõnaraamatus!")
+    f=open(fail, 'r', encoding="utf-8-sig")
+    sonad = []
+    for rida in f:
+            sonad.append(eval(rida.strip()))
+    f.close()
+    for kirje in sonad:
+        if kirje['parool'].lower() == parool.lower() and kirje['nimi'].lower() == login.lower():
+            h=("Sa oled süsteemi sisse loginud!") 
+    return h
 
 
 def vas1(vastus1: str) -> bool:
