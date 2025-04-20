@@ -1,2 +1,4 @@
-{'nimi': 'alexa', 'parool' : 'qweRt56>', 'email' : 'alexa@gmail.com'}
-{'nimi': 'user1', 'parool' : 'User1pass#', 'email' : 'user1@gmail.com'}
+﻿{'nimi': 'alexa', 'parool': 'Alexa1005*', 'email': 'alexa@gmail.com'}
+{'nimi': 'user1', 'parool': 'User1pass#', 'email': 'user1@gmail.com'}
+{'nimi': 'Oleksandra', 'parool': 'wtMvCIve', 'email': 'oleksandraryshniak@gmail.com'}
+{'nimi': 'olex', 'parool': 'IBKGvsHy', 'email': 'alexaryshnak@gmail.com'}

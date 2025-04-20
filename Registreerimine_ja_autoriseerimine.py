@@ -10,9 +10,15 @@ while True:
 v = vas(vastus)
 if v:
         while True:
-            login = str(input("Sisesta oma kasutajanimi: "))
-            if log(login):
+            login = str(input("Sisesta oma kasutajanimi: ")).strip()
+            if log("login_parool.txt",login):
                 print("See kasutajanimi on juba hõivatud, sisesta teine!")
+            else:
+                break
+        while True:
+            email=str(input("Sisesta oma email: ")).strip()
+            if email_("login_parool.txt",email):
+                print("See email on juba hõivatud, sisesta teine!")
             else:
                 break
         while True:
@@ -22,41 +28,25 @@ if v:
             print("Vastus peab olema ainult 'jah' või 'ei'!")
         v1 = vas1(vastus1)
         if v1: 
-            parool = uus_parool()
+            parool = uus_parool1()
             print(f"Sinu parool: {parool}")
         else: 
-                while True:
-                    parool = str(input("Sisesta oma parool: "))
-                    if check_parool(parool):
-                        break
-                    print("Parool peab olema vähemalt 8 tähemärki pikk ning sisaldama numbreid, väikeseid ja suuri tähti ning erimärke!")
-        lisa_kasutaja(login, parool)
+            while True:
+                parool = str(input("Sisesta oma parool: ")).strip()
+                if check_parool1(parool):
+                    break
+                print("Parool peab olema vähemalt 8 tähemärki pikk ning sisaldama numbreid, väikeseid ja suuri tähti ning erimärke!")
+        uus_kasutaja={'nimi': login, 'parool': parool, 'email': email}
+        lisa_kasutaja("login_parool.txt", uus_kasutaja)
         print("Sa oled registreeritud!")
-        while 1:
-            vastus = str(input("Kas sa tahad sisse logida: ")).lower()
-            if vastus in vastus_list and vastus=="jah":
-                while True:
-                    login = str(input("Sisesta oma kasutajanimi: "))
-                    if log(login):
-                        break
-                    else:
-                        print("Seda kasutajanime ei ole nimekirjas!")
-                while 1:
-                    parool = str(input("Sisesta oma parool: "))
-                    if login_parool(login, parool):
-                        print("Sa oled süsteemi sisse loginud!")
-                    else:
-                        print("Parool ei sobi!")
-                        print("Proovi uuesti.")
-            elif vastus in vastus_list and vastus=="ei":
-                break
-            else:
-                print("Vastus peab olema ainult 'jah' või 'ei'!")
+        reg_message(login, email)
 else: 
-        while True:
-            login = str(input("Sisesta oma kasutajanimi: "))
-            if log("login_parool.txt", login):break
-        while True:
-            parool = str(input("Sisesta oma parool: "))
-            if login_parool("login_parool.txt", login, parool):
-                break
+    while True:
+        login = str(input("Sisesta oma kasutajanimi: ")).strip()
+        if login.isalpha():break
+        else:
+            print("Vastus peab olema ainult tihti!")
+    email=str(input("Sisesta oma email: ")).strip()
+    parool = str(input("Sisesta oma parool: ")).strip()
+    login_parool_email("login_parool.txt", login, parool, email)
+        
